@@ -1,3 +1,5 @@
+[Gemini](https://share.google/aimode/kGrodWlVUJTLwEt0l)
+
 # nome para um alienigena
 
 O nome dele pode não ser apenas uma palavra falada.
