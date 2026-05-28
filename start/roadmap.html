@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NK Studio - Roadmap de Desenvolvimento</title>
+    <style>
+      :root {
+        --bg-color: #0d0221;
+        --primary: #00f2ff;
+        --secondary: #ff007a;
+        --accent: #bc13fe;
+        --text: #e0e0e0;
+        --card-bg: #1a1a2e;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text);
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        border-bottom: 3px solid var(--primary);
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        text-shadow: 0 0 10px var(--primary);
+        margin-bottom: 5px;
+      }
+
+      .roadmap-path {
+        position: relative;
+        padding: 20px 0;
+      }
+
+      /* Linha do "Level" */
+      .roadmap-path::before {
+        content: "";
+        position: absolute;
+        left: 50px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(
+          to bottom,
+          var(--primary),
+          var(--secondary),
+          var(--accent)
+        );
+        border-radius: 2px;
+      }
+
+      .level-card {
+        background: var(--card-bg);
+        border-left: 5px solid var(--primary);
+        margin: 20px 0 40px 80px;
+        padding: 25px;
+        border-radius: 8px;
+        position: relative;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease;
+      }
+
+      .level-card:hover {
+        transform: scale(1.02);
+        border-left-color: var(--secondary);
+      }
+
+      .level-badge {
+        position: absolute;
+        left: -65px;
+        top: 15px;
+        background: var(--primary);
+        color: var(--bg-color);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        box-shadow: 0 0 15px var(--primary);
+      }
+
+      h2 {
+        margin-top: 0;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .tool-tag {
+        background: rgba(188, 19, 254, 0.2);
+        border: 1px solid var(--accent);
+        padding: 2px 10px;
+        border-radius: 15px;
+        font-size: 0.85rem;
+        color: var(--accent);
+      }
+
+      .task-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .task-list li::before {
+        content: "▶";
+        color: var(--secondary);
+        margin-right: 10px;
+        font-size: 0.8rem;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      @media (max-width: 600px) {
+        .level-card {
+          margin-left: 60px;
+        }
+        .level-badge {
+          left: -55px;
+        }
+        .roadmap-path::before {
+          left: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>NK Studio Roadmap</h1>
+        <p>Do Zero ao Lançamento: Mobile Game Mastery 2026</p>
+      </header>
+
+      <div class="roadmap-path">
+        <div class="level-card">
+          <div class="level-badge">01</div>
+          <h2>Fase de Descoberta (Market Hunt)</h2>
+          <p>
+            Identificar o que as pessoas estão jogando e o que tem potencial de
+            lucro imediato.
+          </p>
+          <ul class="task-list">
+            <li>Análise de tendências "Hyper-hybrid" nas lojas mobile.</li>
+            <li>
+              Identificação de mecânicas "satisfatórias" (Juiciness) no
+              TikTok/Reels.
+            </li>
+            <li>
+              Definição do público-alvo (Ex: Jogadores casuais de 18-35 anos).
+            </li>
+          </ul>
+          <div class="tools">
+            <span class="tool-tag">Ludo.ai</span>
+            <span class="tool-tag">Google Play Console</span>
+            <span class="tool-tag">Sensor Tower</span>
+          </div>
+        </div>
+
+        <div class="level-card" style="border-left-color: var(--secondary)">
+          <div
+            class="level-badge"
+            style="
+              background: var(--secondary);
+              box-shadow: 0 0 15px var(--secondary);
+            "
+          >
+            02
+          </div>
+          <h2>Concepção & "The Hook"</h2>
+          <p>
+            Transformar a pesquisa em uma ideia única com uma mecânica viciante.
+          </p>
+          <ul class="task-list">
+            <li>
+              Criação do GDD (Game Design Document) simplificado de 1 página.
+            </li>
+            <li>Definição do "Core Loop": Ação -> Recompensa -> Upgrade.</li>
+            <li>Criação do diferencial visual (Estética Neon/Glitch).</li>
+          </ul>
+          <div class="tools">
+            <span class="tool-tag">Gemini NK_Diretor</span>
+            <span class="tool-tag">Midjourney/DALL-E 3</span>
+          </div>
+        </div>
+
+        <div class="level-card" style="border-left-color: var(--accent)">
+          <div
+            class="level-badge"
+            style="
+              background: var(--accent);
+              box-shadow: 0 0 15px var(--accent);
+            "
+          >
+            03
+          </div>
+          <h2>Prototipagem Rápida (The Base)</h2>
+          <p>
+            Colocar o jogo "nas mãos" o mais rápido possível para testar o
+            feeling.
+          </p>
+          <ul class="task-list">
+            <li>
+              Geração da base funcional via IA (Player controller + Gravidade).
+            </li>
+            <li>Implementação do "Color-Swap" ou mecânica principal.</li>
+            <li>Teste de jogabilidade no celular (Build rápida).</li>
+          </ul>
+          <div class="tools">
+            <span class="tool-tag">Rosebud AI</span>
+            <span class="tool-tag">FRVR AI</span>
+            <span class="tool-tag">Unity</span>
+          </div>
+        </div>
+
+        <div class="level-card">
+          <div class="level-badge">04</div>
+          <h2>Polimento & Especialização</h2>
+          <p>Adicionar a "mágica" que faz o jogador não querer fechar o app.</p>
+          <ul class="task-list">
+            <li>
+              Implementação de Partículas, Screen Shake e SFX (Juiciness).
+            </li>
+            <li>Sistema de níveis procedurais ou progressão infinita.</li>
+            <li>Integração de UI/Menus e sistema de moedas/skins.</li>
+          </ul>
+          <div class="tools">
+            <span class="tool-tag">Unity Store</span>
+            <span class="tool-tag">Bfxr (Sons)</span>
+          </div>
+        </div>
+
+        <div class="level-card" style="border-left-color: var(--secondary)">
+          <div
+            class="level-badge"
+            style="
+              background: var(--secondary);
+              box-shadow: 0 0 15px var(--secondary);
+            "
+          >
+            05
+          </div>
+          <h2>Publicação & Marketing</h2>
+          <p>Levar o jogo ao mundo e construir a sua audiência.</p>
+          <ul class="task-list">
+            <li>
+              Criação de vídeos curtos "Build in Public" para redes sociais.
+            </li>
+            <li>Otimização de Loja (ASO): Ícones, Prints e Palavras-chave.</li>
+            <li>
+              Lançamento (Android/iOS) + Configuração de Ads/In-app purchases.
+            </li>
+          </ul>
+          <div class="tools">
+            <span class="tool-tag">CapCut</span>
+            <span class="tool-tag">TikTok/Reels</span>
+            <span class="tool-tag">App Store Connect</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>NK Studio - Desenvolvendo o futuro, um pixel de cada vez.</p>
+      </div>
+    </div>
+  </body>
+</html>
