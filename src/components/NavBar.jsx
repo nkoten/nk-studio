@@ -6,6 +6,7 @@ const links = [
   { to: '/roadmap', label: 'Roadmap' },
   { to: '/caderno', label: 'Caderno' },
   { to: '/viral', label: 'Viral' },
+  { to: '/checklists', label: 'Checks' },
   { to: '/stack', label: 'Stack' },
   { to: '/sobre', label: 'Sobre' },
 ];

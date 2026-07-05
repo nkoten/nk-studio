@@ -6,6 +6,7 @@ import NavBar from './components/NavBar.jsx';
 import Home from './pages/Home.jsx';
 import Roadmap from './pages/Roadmap.jsx';
 import Caderno from './pages/Caderno.jsx';
+import Checks from './pages/Checks.jsx';
 import { Viral, Stack, Sobre } from './pages/OtherPages.jsx';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/caderno" element={<Caderno />} />
           <Route path="/viral" element={<Viral />} />
+          <Route path="/checklists" element={<Checks />} />
           <Route path="/stack" element={<Stack />} />
           <Route path="/sobre" element={<Sobre />} />
         </Routes>
