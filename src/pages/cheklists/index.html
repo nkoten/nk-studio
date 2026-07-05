@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <title>NKoten Quest Log :: Publishing Checklist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* ---- DARK THEME ("Night Quest") ---- */
+        --bg: #0c0720;
+        --bg-grid: #120c2e;
+        --panel: #191033;
+        --panel-2: #241748;
+        --panel-3: #2d1c5c;
+        --ink: #f1ecff;
+        --ink-dim: #a99fd6;
+        --border: #3d2b78;
+        --shadow-col: #050216;
+
+        --gold: #ffd23f;
+        --cyan: #3ee6c4;
+        --magenta: #ff4d8d;
+        --blue: #5b8bff;
+        --red: #ff5c5c;
+
+        --font-pixel: 'Press Start 2P', monospace;
+        --font-body: 'Inter', sans-serif;
+        --font-term: 'VT323', monospace;
+      }
+
+      html[data-theme='light'] {
+        /* ---- LIGHT THEME ("Day Quest" / parchment) ---- */
+        --bg: #f3ead2;
+        --bg-grid: #ece0bd;
+        --panel: #fdf6e3;
+        --panel-2: #f2e4bd;
+        --panel-3: #e8d49f;
+        --ink: #2c1e0d;
+        --ink-dim: #6b573a;
+        --border: #c9a95f;
+        --shadow-col: #b89452;
+
+        --gold: #b3760e;
+        --cyan: #12806a;
+        --magenta: #b13566;
+        --blue: #2c4fa8;
+        --red: #b23a3a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font-body);
+        background-color: var(--bg);
+        background-image:
+          linear-gradient(var(--bg-grid) 1px, transparent 1px),
+          linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+        background-size: 24px 24px;
+        color: var(--ink);
+        image-rendering: pixelated;
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease;
+      }
+
+      ::selection {
+        background: var(--magenta);
+        color: var(--bg);
+      }
+
+      /* ---- pixel bevel panel, used everywhere as the signature element ---- */
+      .pixel-panel {
+        background: var(--panel);
+        border: 3px solid var(--border);
+        box-shadow: 5px 5px 0 0 var(--shadow-col);
+      }
+
+      .pixel-btn {
+        font-family: var(--font-pixel);
+        font-size: 10px;
+        line-height: 1.6;
+        letter-spacing: 0.5px;
+        background: var(--panel-2);
+        color: var(--ink);
+        border: 3px solid var(--border);
+        box-shadow: 3px 3px 0 0 var(--shadow-col);
+        padding: 8px 12px;
+        cursor: pointer;
+        user-select: none;
+        transition: transform 0.05s ease;
+      }
+      .pixel-btn:hover {
+        background: var(--panel-3);
+      }
+      .pixel-btn:active {
+        transform: translate(3px, 3px);
+        box-shadow: 0 0 0 0 var(--shadow-col);
+      }
+      .pixel-btn.active {
+        background: var(--gold);
+        color: var(--shadow-col);
+      }
+
+      .pixel-checkbox {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+        border: 3px solid var(--border);
+        background: var(--panel);
+        box-shadow: 2px 2px 0 0 var(--shadow-col);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-family: var(--font-pixel);
+        font-size: 11px;
+        color: var(--cyan);
+      }
+      .pixel-checkbox.checked {
+        background: var(--cyan);
+        color: var(--shadow-col);
+      }
+
+      .pixel-bar-track {
+        width: 100%;
+        height: 14px;
+        background: var(--panel-2);
+        border: 2px solid var(--border);
+        overflow: hidden;
+      }
+      .pixel-bar-fill {
+        height: 100%;
+        background: repeating-linear-gradient(
+          90deg,
+          var(--cyan) 0px,
+          var(--cyan) 6px,
+          var(--panel) 6px,
+          var(--panel) 8px
+        );
+        transition: width 0.3s ease;
+      }
+      .pixel-bar-fill.gold {
+        background: repeating-linear-gradient(
+          90deg,
+          var(--gold) 0px,
+          var(--gold) 6px,
+          var(--panel) 6px,
+          var(--panel) 8px
+        );
+      }
+
+      .font-pixel {
+        font-family: var(--font-pixel);
+      }
+      .font-term {
+        font-family: var(--font-term);
+      }
+
+      a {
+        color: var(--blue);
+      }
+
+      /* scrollbar flavor */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-grid);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app_root"></div>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>
+      window.__babelTransformCache = {};
+      window.esmsInitOptions = {
+        fetch: async (url, options) => {
+          if (
+            /\.(jsx)$/.test(url) ||
+            (url.startsWith(location.origin) && /\.(js|jsx)$/.test(url))
+          ) {
+            if (window.__babelTransformCache[url]) {
+              return new Response(window.__babelTransformCache[url], {
+                headers: { 'Content-Type': 'application/javascript' },
+              });
+            }
+            const res = await fetch(url, options);
+            const src = await res.text();
+            const { code } = Babel.transform(src, {
+              presets: [['react', { runtime: 'automatic' }]],
+              filename: url,
+            });
+            window.__babelTransformCache[url] = code;
+            return new Response(code, {
+              headers: { 'Content-Type': 'application/javascript' },
+            });
+          }
+          return fetch(url, options);
+        },
+      };
+    </script>
+    <script
+      async
+      src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"
+    ></script>
+    <script type="importmap-shim">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@19",
+          "react-dom/client": "https://esm.sh/react-dom@19/client",
+          "react-router-dom": "https://esm.sh/react-router-dom@6",
+          "react/jsx-runtime": "https://esm.sh/react@19/jsx-runtime",
+          "react/jsx-dev-runtime": "https://esm.sh/react@19/jsx-dev-runtime"
+        }
+      }
+    </script>
+    <script type="module-shim" src="./pub-apps.jsx"></script>
+  </body>
+</html>
